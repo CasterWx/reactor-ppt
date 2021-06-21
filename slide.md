@@ -78,6 +78,74 @@ Flux.fromIterable(serviceNoList)
 
 :::
 
+<slide class="bg-white">
+
+
+:::header
+
+Reactor Core API 介绍
+
+:::
+
+### Flux 包含 0 到 N 个元素的异步序列
+
+---
+
+* `just()`：可以指定序列中包含的全部元素。创建出来的 Flux 序列在发布这些元素之后会自动结束。
+* `fromArray()`，`fromIterable()`和 `fromStream()`：可以从一个数组、Iterable 对象或 Stream 对象中创建 Flux 对象。
+* `empty()`：创建一个不包含任何元素，只发布结束消息的序列。
+* `error(Throwable error)`：创建一个只包含错误消息的序列。
+* `never()`：创建一个不包含任何消息通知的序列。
+* `range(int start, int count)`：创建包含从 start 起始的 count 个数量的 Integer 对象的序列。
+* `interval(Duration period)`和 `interval(Duration delay, Duration period)`：创建一个包含了从 0 开始递增的 Long 对象的序列。其中包含的元素按照指定的间隔来发布。除了间隔时间之外，还可以指定起始元素发布之前的延迟时间。
+* `intervalMillis(long period)`和 `intervalMillis(long delay, long period)`：与 `interval()`方法的作用相同，只不过该方法通过毫秒数来指定时间间隔和延迟时间。
+
+
+
+<slide class="bg-white">
+
+
+:::header
+
+Reactor Core API 介绍
+
+:::
+
+### Mono 包含 0 到 1 个元素的异步序列
+
+---
+
+* just()、empty()、error() 和 never()
+* `fromCallable()`、`fromCompletionStage()`、`fromFuture()`、`fromRunnable()`和 `fromSupplier()`：分别从 Callable、CompletionStage、CompletableFuture、Runnable 和 Supplier 中创建 Mono。
+* `delay(Duration duration)和 delayMillis(long duration)`：创建一个 Mono 序列，在指定的延迟时间之后，产生数字 0 作为唯一值。
+* `ignoreElements(Publisher<T> source)`：创建一个 Mono 序列，忽略作为源的 Publisher 中的所有元素，只产生结束消息。
+* `justOrEmpty(Optional<? extends T> data)`和 `justOrEmpty(T data)`：从一个 Optional 对象或可能为 null 的对象中创建 Mono。只有 Optional 对象中包含值或对象不为 null 时，Mono 序列才产生对应的元素。
+
+
+
+<slide class="bg-white">
+
+
+:::header
+
+Reactor Core API 介绍
+
+:::
+
+### 操作符
+
+---
+
+* buffer 和 bufferTimeout
+* filter
+* window
+* combineLatest
+* zipWith
+* take
+* reduce 和 reduceWith
+* merge 和 mergeSequential
+* flatMap 和 flatMapSequential
+* concatMap(concatenate)
 
 
 <slide class="bg-white">

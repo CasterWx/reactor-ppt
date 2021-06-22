@@ -30,17 +30,11 @@ By AntzUhl {.alignright}
 
 <slide class="bg-white">
 
-
-:::header
-
-![](https://antzyun.oss-cn-beijing.aliyuncs.com/20210620151010.png)
-
-:::
-
-### Talk is cheap, show me the code {.aligncenter}
+## 为什么使用Project Reactor {.aligncenter}
 
 
 <slide class="bg-white">
+
 
 
 :::header
@@ -136,16 +130,29 @@ Reactor Core API 介绍
 
 ---
 
-* buffer 和 bufferTimeout
-* filter
-* window
-* combineLatest
-* zipWith
-* take
-* reduce 和 reduceWith
-* merge 和 mergeSequential
-* flatMap 和 flatMapSequential
-* concatMap(concatenate)
+* `buffer` 和 `bufferTimeout`：把当前流中的元素收集到集合中，并把集合对象作为流中的新元素
+* `filter`：对流中包含的元素进行过滤，只留下满足 Predicate 指定条件的元素
+* `window`：把当前流中的元素收集到另外的Flux序列中，返回值类型是`Flux<Flux>`
+* `combineLatest`：把所有流中的最新产生的元素合并成一个新的元素，作为返回结果流中的元素
+* `zipWith`：把当前流中的元素与另外一个流中的元素按照一对一的方式进行合并
+* `take`：从当前流中提取元素
+* `reduce` 和 `reduceWith`：对流中包含的所有元素进行累积操作
+* `merge` 和 `mergeSequential`：把多个流合并成一个Flux序列
+* `flatMap` 和 `flatMapSequential`：把流中的每个元素转换成一个流，再把所有流中的元素进行合并
+* `concatMap(concatenate)`：把流中的每个元素转换成一个流，再把所有流进行合并
+
+
+
+<slide class="bg-white">
+
+
+:::header
+
+![](https://antzyun.oss-cn-beijing.aliyuncs.com/20210620151010.png)
+
+:::
+
+### Talk is cheap, show me the code {.aligncenter}
 
 
 <slide class="bg-white">
